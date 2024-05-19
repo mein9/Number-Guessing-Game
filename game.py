@@ -3,26 +3,26 @@ import math
 
 lower_limit = int(input("Enter Lower Limit "))
 upper_limit = int(input("Enter Upper Limit "))
-user_input = int(input(f'Guess a number between {lower_limit} and {upper_limit} '))
+
+max_tries = int(math.log(upper_limit - lower_limit + 1, 2))
 rand_num = random.randrange(lower_limit,(upper_limit + 1))
 i = 0
-while i < math.log(upper_limit - user_input +1, 2):
+while i < max_tries:
+    user_input = int(input(f'Guess a number between {lower_limit} and {upper_limit}: '))
     i += 1
-    if user_input != rand_num:
+    if user_input == rand_num:
+        print(f'Congratulations! You guessed the number {rand_num} correctly in {i} tries.')
+        break
+    else:
         print(f'{user_input} was not correct.', end=" ")
-        
         if user_input > rand_num:
-            print("The number was lower ")
-        if user_input < rand_num:
-            print("The number was higher ")
+            print("The number is lower.")
+        else:
+            print("The number is higher.")
+        
 
-        user_input = int(input("Please Guess Again \n "))
-    
-        if user_input == rand_num:
-            print(f'Congratulations you guessed the number {d} correctly in {i} tries ')
-
-if i >= math.log(upper_limit - user_input + 1, 2):
-    print(f'Sorry you were not able to correctly guess the number in {i} tries. The correct answer was {d} \n ')
+else:
+    print(f'Sorry you were not able to correctly guess the number in {i} tries. The correct answer was {rand_num} \n ')
    #play_again = input("Play again? (y/n)")
     #if (play_again == "y") or (play_again == "Y") :
         #find out how to start code over
