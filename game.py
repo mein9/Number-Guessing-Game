@@ -23,8 +23,9 @@ while i < max_tries:
 
 else:
     print(f'Sorry you were not able to correctly guess the number in {i} tries. The correct answer was {rand_num} \n ')
+   #FIXME figure out how to make this outline work lol
    #play_again = input("Play again? (y/n)")
     #if (play_again == "y") or (play_again == "Y") :
         #find out how to start code over
-   # if (play_again == n) or (play_again == "N"):
+   # if (play_again == "n") or (play_again == "N"):
        # print("Goodbye")
