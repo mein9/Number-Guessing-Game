@@ -2,15 +2,35 @@ import random
 import math
 
 def main_program():
-    lower_limit = int(input("Enter Lower Limit "))
-    upper_limit = int(input("Enter Upper Limit "))
-
+    while True:
+        try:
+            lower_limit = int(input("Enter Lower Limit: "))
+            break
+        except ValueError:
+            print("Please enter a valid number.")
+    
+    while True:
+        try:
+            upper_limit = int(input("Enter Upper Limit: "))
+            if upper_limit > lower_limit:
+                break
+            else:
+                print("Upper limit must be greater than the lower limit.")
+        except ValueError:
+            print("Please enter a valid number.")
+        
     max_tries = int(math.log(upper_limit - lower_limit + 1, 2))
     rand_num = random.randrange(lower_limit,(upper_limit + 1))
     i = 0
     while i < max_tries:
-        user_input = int(input(f'Guess a number between {lower_limit} and {upper_limit}: '))
+        try:
+            user_input = int(input(f'Guess a number between {lower_limit} and {upper_limit}: '))
+        except ValueError:
+            print("Please enter a valid number.")
+            continue
+
         i += 1
+
         if user_input == rand_num:
             print(f'Congratulations! You guessed the number {rand_num} correctly in {i} tries.')
             break
